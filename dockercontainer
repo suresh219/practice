@@ -1,0 +1,7 @@
+cd /var/lib/jenkins/workspace/docker/
+mvn clean install
+sudo mv Dockerfile /home/ubuntu/project/
+sudo mv webapp/target/webapp.war /home/ubuntu/project/
+cd /home/ubuntu/project/
+docker build -t helloworld .
+docker run --name t1 -p 8181:8080 -itd helloworld
